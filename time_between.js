@@ -35,9 +35,9 @@ document.getElementById('calcTimeBetween').addEventListener('click', function(ev
     var endDate = new Date(document.getElementById("endDate").value);
     
     if (document.getElementById("includeEnd").checked == false) {
-        endDayAdjustment = -1;
-    } else {
         endDayAdjustment = 0;
+    } else {
+        endDayAdjustment = 1;
     }
 
     var differenceMilliseconds = endDate.getTime() - startDate.getTime();
