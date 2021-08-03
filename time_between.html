@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time Between Two Dates</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="time_between.js" defer></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-link active" aria-current="page" href="#">Time Between Two Dates</a>
+                    <a class="nav-link" href="days_from.html">Days From Date</a>
+                    <a class="nav-link" href="day_of_week.html">Day of The Week</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="container-fluid mt-3">
+        <p>Quickly calculate the number of days, work days, weeks, months, and years between two dates. Great for project planning and tracking age.</p>
+    </div>
+    <div class="container-fluid mt-3">
+        <h2>Calculate the Time Between Two Dates</h2>
+        <form class="row align-items-center" id="timeBetweenForm">
+            <div class="col-auto">
+                <label for="startDate">Start Date</label>
+                <input type="date" class="form-control" id="startDate" required>
+            </div>
+            <div class="col-auto">
+                <label for="endDate">End Date</label>
+                <input type="date" class="form-control" id="endDate" required>
+            </div>
+            <div class="col-auto form-check">
+                <input type="checkbox" class="form-check-input" id="includeEnd">
+                <label class="form-check-label" for="includeEnd">Include End Date <br> (adds 1 day)</label>
+              </div>
+            <div class="col-auto">
+                <button type="submit" class="btn btn-primary" id="calcTimeBetween" disabled>Calculate</button>
+            </div>
+        </form>
+    </div>
+    <div class="container-fluid mt-3">
+        <table class="table table-hover d-none" style="width:300px" id = "timeBetweenResults">
+            <thead>
+                <tr>
+                    <th colspan="2" scope="col">Results</th>
+                </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span id="workDays"></span></td>
+                <td>work day(s)</td>
+              </tr>
+              <tr>
+                <td><span id="days"></span></td>
+                <td>day(s)</td>
+              </tr>
+              <tr>
+                <td><span id="weeks"></span></td>
+                <td>week(s)</td>
+              </tr>
+              <tr>
+                <td><span id="months"></span></td>
+                <td>month(s)</td>
+              </tr>
+              <tr>
+                <td><span id="years"></span></td>
+                <td>year(s)</td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+</body>
+</html>
