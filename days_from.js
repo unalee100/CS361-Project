@@ -10,10 +10,14 @@ $(function () {
 });
 
 //return the date the specified number of months after the inputDate
-function addMonths(inputDate, months) {
-    var returnDate = inputDate.getDate();
-    returnDate.setMonth(inputDate.getMonth() + +months);
-    return returnDate;
+//Source: https://stackoverflow.com/questions/12793045/adding-months-to-a-date-in-javascript
+function addMonths(date, months) {
+    var inputDate = date.getDate();
+    date.setMonth(date.getMonth() + +months);
+    if (date.getDate() != inputDate) {
+        date.setDate(0);
+    }
+    return date;
 }
 
 // calculate and return results

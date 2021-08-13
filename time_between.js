@@ -56,13 +56,13 @@ document.getElementById('calcTimeBetween').addEventListener('click', function(ev
     var days = String(differenceMilliseconds / (1000 * 3600 * 24) + endDayAdjustment);
     document.getElementById('days').textContent = days;
 
-    var weeks = displayString((differenceMilliseconds / (1000 * 3600 * 24) + endDayAdjustment) / 7.0);
+    var weeks = getRoundedString((differenceMilliseconds / (1000 * 3600 * 24) + endDayAdjustment) / 7.0);
     document.getElementById('weeks').textContent = weeks;
     
-    var months = displayString(getMonths(startDate, endDate));
+    var months = getRoundedString(getMonths(startDate, endDate));
     document.getElementById('months').textContent = months;
 
-    var years = displayString((differenceMilliseconds / (1000 * 3600 * 24) + endDayAdjustment) / 365.0);
+    var years = getRoundedString((differenceMilliseconds / (1000 * 3600 * 24) + endDayAdjustment) / 365.0);
     document.getElementById('years').textContent = years;
     
     document.getElementById('timeBetweenResults').classList.remove('d-none');

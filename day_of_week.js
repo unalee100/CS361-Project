@@ -23,19 +23,6 @@ function getDateUrl (inputDate, baseUrl) {
     return baseUrl + monthString + "-" + dayString;
 }
 
-//get text from page at a given url
-function getTextFromUrl(url) {
-    var xmlhttp = new XMLHttpRequest();
-    xmlhttp.onreadystatechange=function() {
-        if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-            return xmlhttp.responseText;
-        }
-    }
-    xmlhttp.open("GET", url, false);
-    xmlhttp.send();
-    return xmlhttp.response;
-}
-
 //calculate and display results
 document.getElementById('calcDay').addEventListener('click', function(event){
     var inputDate = new Date(document.getElementById("inputDate").value);
@@ -45,8 +32,13 @@ document.getElementById('calcDay').addEventListener('click', function(event){
     document.getElementById('dayOfWeek').textContent = days[inputDate.getDay()];
 
     const textGetterBaseUrl = "https://polar-thicket-58913.herokuapp.com/datescraper/";
-    var dayInHistoryText = httpGet(getDateUrl(inputDate,textGetterBaseUrl));
-    document.getElementById('dayInHistoryText').textContent = dayInHistoryText;
+    var dayInHistoryText;
+    fetch(getDateUrl(inputDate,textGetterBaseUrl)).then(function(response) {
+        response.text().then(function(text) {
+            dayInHistoryText = text;
+            document.getElementById('dayInHistoryText').textContent = dayInHistoryText;
+        });
+    });
     
     const dayInHistoryBaseUrl = "https://www.loc.gov/item/today-in-history/"
     var dayInHistoryLink = getDateUrl(inputDate, dayInHistoryBaseUrl);
